@@ -1,14 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:butterfly_doc_app_by_designkes/model_graph_value.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MainPage extends StatefulWidget {
-  @override
-  _MainPageState createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
+class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1635)..init(context);
@@ -29,11 +25,11 @@ class _MainPageState extends State<MainPage> {
             Text(
               "Documentries",
               style: GoogleFonts.montserrat(
-                textStyle: TextStyle(
-                  color: Colors.white,
-                  fontSize: ScreenUtil.instance.setSp(22),
-                  fontWeight: FontWeight.w400
-                )
+                  textStyle: TextStyle(
+                      color: Colors.white,
+                      fontSize: ScreenUtil.instance.setSp(22),
+                      fontWeight: FontWeight.w400
+                  )
               ),
             ),
             SizedBox(
@@ -42,35 +38,17 @@ class _MainPageState extends State<MainPage> {
             Text(
               "Identify a butterfly",
               style: GoogleFonts.montserrat(
-                textStyle: TextStyle(
-                  color: Colors.white,
-                  fontSize: ScreenUtil.instance.setSp(30),
-                  fontWeight: FontWeight.w700
-                )
+                  textStyle: TextStyle(
+                      color: Colors.white,
+                      fontSize: ScreenUtil.instance.setSp(30),
+                      fontWeight: FontWeight.w700
+                  )
               ),
             ),
             SizedBox(
               height: ScreenUtil.instance.setHeight(60),
             ),
-            Center(
-              child: AutoSizeText(
-                "Swallowtail".toUpperCase(),
-                maxLines: 1,
-                textAlign: TextAlign.center,
-                minFontSize: 1,
-                style: GoogleFonts.montserrat(
-                    textStyle: TextStyle(
-                      color: Colors.white,
-                      fontSize: ScreenUtil.instance.setSp(64),
-                      letterSpacing: ScreenUtil.instance.setSp(8),
-                      fontWeight: FontWeight.w200,
-                    )
-                )
-              ),
-            ),
-            SizedBox(
-              height: ScreenUtil.instance.setHeight(572),
-            ),
+            WidgetMainImage(),
             Container(
               height: ScreenUtil.instance.setHeight(58),
               child: Row(
@@ -114,25 +92,25 @@ class _MainPageState extends State<MainPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
-                          "Size",
-                          style: GoogleFonts.montserrat(
-                              textStyle: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: ScreenUtil.instance.setSp(16),
-                                  fontWeight: FontWeight.w400
-                              )
-                          )
+                            "Size",
+                            style: GoogleFonts.montserrat(
+                                textStyle: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: ScreenUtil.instance.setSp(16),
+                                    fontWeight: FontWeight.w400
+                                )
+                            )
 
                         ),
                         Text(
-                          "Large",
-                          style: GoogleFonts.montserrat(
-                              textStyle: TextStyle(
-                                  color: Color(0xFFf79d00),
-                                  fontSize: ScreenUtil.instance.setSp(16),
-                                  fontWeight: FontWeight.w600
-                              )
-                          )
+                            "Large",
+                            style: GoogleFonts.montserrat(
+                                textStyle: TextStyle(
+                                    color: Color(0xFFf79d00),
+                                    fontSize: ScreenUtil.instance.setSp(16),
+                                    fontWeight: FontWeight.w600
+                                )
+                            )
                         ),
                       ],
                     ),
@@ -177,46 +155,46 @@ class _MainPageState extends State<MainPage> {
               height: ScreenUtil.instance.setHeight(52),
             ),
             Container(
-              height: ScreenUtil.instance.setHeight(130),
-              child: AutoSizeText(
-                "A large, strong-flying butterfly restricted to the Norfolk "
-                "Broads, although migrants are occasionally seen "
-                "elsewhere. This is one of our rarest and most "
-                "spectacular butterflies.",
-                minFontSize: 1,
-                maxLines: 3,
-                textAlign: TextAlign.center,
-                style: GoogleFonts.montserrat(
-                    textStyle: TextStyle(
-                      color: Colors.white,
-                      fontSize: ScreenUtil.instance.setSp(20),
-                      fontWeight: FontWeight.w400,
-                      height: 2
+                height: ScreenUtil.instance.setHeight(130),
+                child: AutoSizeText(
+                    "A large, strong-flying butterfly restricted to the Norfolk "
+                        "Broads, although migrants are occasionally seen "
+                        "elsewhere. This is one of our rarest and most "
+                        "spectacular butterflies.",
+                    minFontSize: 1,
+                    maxLines: 3,
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.montserrat(
+                        textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: ScreenUtil.instance.setSp(20),
+                            fontWeight: FontWeight.w400,
+                            height: ScreenUtil.instance.setHeight(4)
+                        )
                     )
                 )
-              )
             ),
             SizedBox(
               height: ScreenUtil.instance.setHeight(32),
             ),
             Container(
-              alignment: Alignment.center,
-              child: AutoSizeText(
-                "LIFE CYCLE",
-                minFontSize: 1,
-                textAlign: TextAlign.center,
-                style: GoogleFonts.montserrat(
-                    textStyle: TextStyle(
-                      color: Colors.white,
-                      fontSize: ScreenUtil.instance.setSp(20),
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: 2
+                alignment: Alignment.center,
+                child: AutoSizeText(
+                    "LIFE CYCLE",
+                    minFontSize: 1,
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.montserrat(
+                        textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: ScreenUtil.instance.setSp(20),
+                            fontWeight: FontWeight.w400,
+                            letterSpacing: 2
+                        )
                     )
                 )
-              )
             ),
-            SizedBox(
-              height: ScreenUtil.instance.setHeight(62),
+            Expanded(
+              child: Container(),
             ),
             WidgetGraph()
           ],
@@ -230,7 +208,6 @@ class WidgetGraph extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-//        color: Colors.white,
         height: ScreenUtil.instance.setHeight(260),
         child: Column(
           children: <Widget>[
@@ -346,26 +323,50 @@ class WidgetGraph extends StatelessWidget {
             ),
             Expanded(
                 flex: 1,
-                child: graphValue("Egg",[4,5,7,8],Colors.orangeAccent)
+                child: graphValue(
+                  "Egg",
+                  [
+                    ModelGraphValue(4,5),
+                    ModelGraphValue(8,9),
+                  ],
+                  Colors.orangeAccent)
             ),
             Expanded(
                 flex: 1,
-                child: Container(color: Colors.blue,)
+                child: graphValue(
+                  "Caterpillar",
+                  [
+                    ModelGraphValue(5,6),
+                    ModelGraphValue(9,10),
+                  ],
+                  Colors.green)
             ),
             Expanded(
                 flex: 1,
-                child: Container(color: Colors.red,)
+                child: graphValue(
+                    "Chrysallis",
+                    [
+                      ModelGraphValue(1,11),
+                    ],
+                    Colors.indigo)
             ),
             Expanded(
                 flex: 1,
-                child: Container(color: Colors.green,)
+                child: graphValue(
+                    "Adult",
+                    [
+                      ModelGraphValue(3,4),
+                      ModelGraphValue(7,7),
+                    ],
+                    Colors.red)
             ),
           ],
         ),
       );
   }
 
-  Widget graphValueOld(String text,List<int> listValue,Color color){
+  Widget graphValue(String text,List<ModelGraphValue> listModelGraphValue,Color color){
+    double maxWidth = ScreenUtil.instance.setWidth(430);
     return Row(
       children: <Widget>[
         Container(
@@ -382,118 +383,86 @@ class WidgetGraph extends StatelessWidget {
           ),
         ),
         Container(
-          width: ScreenUtil.instance.setWidth(430),
-          child: ListView.builder(
-            itemCount: 12,
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context,index){
-              return Center(
+          width: maxWidth,
+          child: Stack(
+            alignment: Alignment.center,
+            children: listModelGraphValue.map((value){
+              return Positioned(
+                left: maxWidth/12*value.startMonth,
+                width: maxWidth/12*(value.endMonth-value.startMonth+1),
+                height: ScreenUtil.instance.setHeight(3),
                 child: Container(
-                  width: ScreenUtil.instance.setWidth(430/12),
-                  height: ScreenUtil.instance.setHeight(5),
+                  margin: EdgeInsets.symmetric(
+                    horizontal: ScreenUtil.instance.setWidth(5)
+                  ),
                   decoration: BoxDecoration(
-                      color: listValue.contains(index+1)
-                          ?color
-                          :Colors.transparent,
-                      boxShadow: [
-                        BoxShadow(
-                            color: listValue.contains(index+1)
-                                ?color
-                                :Colors.transparent,
-                            offset: Offset(0, 0),
-                            blurRadius: 8)
+                    boxShadow: [
+                      BoxShadow(
+                          color: color,
+                          blurRadius: 5),
+                    ],
+                    gradient: LinearGradient(
+                      begin: Alignment.centerRight,
+                      end: Alignment.centerLeft,
+                      colors: [
+                        color.withOpacity(0.1),
+                        color.withOpacity(0.2),
+                        color,
+                        color.withOpacity(0.2),
+                        color.withOpacity(0.1),
                       ],
+                    )
                   ),
                 ),
               );
-            },
+            }).toList(),
           ),
-        ),
-      ],
-    );
-  }
-
-  Widget graphValue(String text,List<int> listValue,Color color){
-    return Row(
-      children: <Widget>[
-        Container(
-          width: ScreenUtil.instance.setWidth(160),
-          child: Text(
-            text,
-            style: GoogleFonts.montserrat(
-                textStyle: TextStyle(
-                    color: Colors.white,
-                    fontSize: ScreenUtil.instance.setSp(18),
-                    fontWeight: FontWeight.w300
-                )
-            ),
-          ),
-        ),
-        Container(
-          width: ScreenUtil.instance.setWidth(430),
-          child: Stack(
-            alignment: Alignment.center,
-            children: <Widget>[
-//              Positioned(
-//                left: 0,
-//                child: Container(
-//                  width: ScreenUtil.instance.setWidth(420),
-//                  height: ScreenUtil.instance.setHeight(5),
-//                  decoration: BoxDecoration(
-//                    color: color.withOpacity(0.6),
-//                    boxShadow: [
-//                      BoxShadow(
-//                          color: color,
-//                          offset: Offset(0, 0),
-//                          blurRadius: 8)
-//                    ],
-//                  ),
-//                ),
-//              ),
-              Positioned(
-//                left: (430/12)*2,
-                left: 40.0*5.5,
-                width: ScreenUtil.instance.setWidth(40),
-                height: ScreenUtil.instance.setHeight(5),
-                bottom: 0.0,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: color.withOpacity(0.6),
-                  ),
-                ),
-              ),
-            ],
-          ),
-//          child: ListView.builder(
-//            itemCount: 12,
-//            shrinkWrap: true,
-//            scrollDirection: Axis.horizontal,
-//            itemBuilder: (context,index){
-//              return Center(
-//                child: Container(
-//                  width: ScreenUtil.instance.setWidth(430/12),
-//                  height: ScreenUtil.instance.setHeight(5),
-//                  decoration: BoxDecoration(
-//                    color: listValue.contains(index+1)
-//                        ?color.withOpacity(0.6)
-//                        :Colors.transparent,
-//                    boxShadow: [
-//                      BoxShadow(
-//                          color: listValue.contains(index+1)
-//                              ?color
-//                              :Colors.transparent,
-//                          offset: Offset(0, 0),
-//                          blurRadius: 8)
-//                    ],
-//                  ),
-//                ),
-//              );
-//            },
-//          ),
         ),
       ],
     );
   }
 }
+
+class WidgetMainImage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: ScreenUtil.instance.setHeight(90+572),
+      child: Stack(
+        children: <Widget>[
+
+          SizedBox(
+            height: ScreenUtil.instance.setHeight(90),
+            child: Center(
+              child: AutoSizeText(
+                  "Swallowtail".toUpperCase(),
+                  maxLines: 1,
+                  minFontSize: 1,
+                  style: GoogleFonts.montserrat(
+                      textStyle: TextStyle(
+                        color: Colors.white,
+                        fontSize: ScreenUtil.instance.setSp(70),
+                        letterSpacing: ScreenUtil.instance.setSp(8),
+                        fontWeight: FontWeight.w200,
+                      )
+                  )
+              ),
+            ),
+          ),
+          Transform.scale(
+            scale: 1.5,
+            child: SizedBox(
+              height: ScreenUtil.instance.setHeight(90+572),
+              child: Image.asset(
+                'images/swallowtail.png',
+                colorBlendMode: BlendMode.darken,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 
