@@ -47,7 +47,22 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/swallowtail.png
+    - assets/images/butterfly1.png
+    - assets/images/butterfly2.png
+    - assets/images/butterfly3.png
+    - assets/images/butterfly4.png
+    - assets/icons/book.png
+    - assets/icons/bookmark.png
+    - assets/icons/camera.png
+    - assets/icons/chart.png
+    - assets/icons/chevron.png
+    - assets/icons/clock.png
+    - assets/icons/compass.png
+    - assets/icons/layout.png
+    - assets/icons/map.png
+    - assets/icons/moon.png
+    - assets/icons/search.png
+    - assets/icons/star.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
