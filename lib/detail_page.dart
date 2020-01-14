@@ -1,10 +1,15 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:butterfly_doc_app_by_designkes/model_butterfly.dart';
 import 'package:butterfly_doc_app_by_designkes/model_graph_value.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DetailPage extends StatelessWidget {
+  final ModelButterfly modelButterfly;
+
+  const DetailPage({Key key, this.modelButterfly}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
 
@@ -47,7 +52,7 @@ class DetailPage extends StatelessWidget {
             SizedBox(
               height: ScreenUtil.instance.setHeight(60),
             ),
-            WidgetMainImage(),
+            WidgetMainImage(modelButterfly: modelButterfly,),
             Container(
               height: ScreenUtil.instance.setHeight(58),
               child: Row(
@@ -423,6 +428,10 @@ class WidgetGraph extends StatelessWidget {
 }
 
 class WidgetMainImage extends StatefulWidget {
+  final ModelButterfly modelButterfly;
+
+  const WidgetMainImage({Key key, this.modelButterfly}) : super(key: key);
+
   @override
   _WidgetMainImageState createState() => _WidgetMainImageState();
 }
@@ -435,7 +444,7 @@ class _WidgetMainImageState extends State<WidgetMainImage> with SingleTickerProv
   void initState() {
     super.initState();
     controller = AnimationController(
-        duration: Duration(milliseconds: 2000), vsync: this);
+        duration: Duration(milliseconds: 1000), vsync: this);
     controller.addListener((){
       setState(() {
 
@@ -450,10 +459,16 @@ class _WidgetMainImageState extends State<WidgetMainImage> with SingleTickerProv
         curve: Interval(
           0,
           0.5,
-          curve: Curves.bounceIn,
+          curve: Curves.easeInOutCubic,
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -462,14 +477,11 @@ class _WidgetMainImageState extends State<WidgetMainImage> with SingleTickerProv
       height: ScreenUtil.instance.setHeight(90+572),
       child: GestureDetector(
         onTap: (){
-          print(controller.value);
-          print(controller.status);
           if(controller.value==controller.upperBound){
             controller.reverse();
           }else{
             controller.forward();
           }
-          print(controller.status);
         },
         child: Stack(
           children: <Widget>[
@@ -477,7 +489,7 @@ class _WidgetMainImageState extends State<WidgetMainImage> with SingleTickerProv
               height: ScreenUtil.instance.setHeight(90),
               child: Center(
                 child: AutoSizeText(
-                    "Swallowtail".toUpperCase(),
+                    widget.modelButterfly.name.toUpperCase(),
                     maxLines: 1,
                     minFontSize: 1,
                     style: GoogleFonts.montserrat(
@@ -498,7 +510,7 @@ class _WidgetMainImageState extends State<WidgetMainImage> with SingleTickerProv
                 child: SizedBox(
                   height: ScreenUtil.instance.setHeight(90+572),
                   child: Image.asset(
-                    'assets/images/butterfly1.png',
+                    widget.modelButterfly.image,
                     color: Colors.black45,
                   ),
                 ),
@@ -508,10 +520,12 @@ class _WidgetMainImageState extends State<WidgetMainImage> with SingleTickerProv
               scale: 1+(0.5*boxAnimation.value),
               child: SizedBox(
                 height: ScreenUtil.instance.setHeight(90+572),
-                child: Image.asset(
-//                  'images/swallowtail.png',
-                  'assets/images/butterfly1.png',
-                  colorBlendMode: BlendMode.darken,
+                child: Hero(
+                  tag: widget.modelButterfly.image,
+                  child: Image.asset(
+                    widget.modelButterfly.image,
+                    colorBlendMode: BlendMode.darken,
+                  ),
                 ),
               ),
             ),
