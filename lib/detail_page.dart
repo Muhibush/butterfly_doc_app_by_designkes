@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:butterfly_doc_app_by_designkes/fade_animation.dart';
 import 'package:butterfly_doc_app_by_designkes/model_butterfly.dart';
 import 'package:butterfly_doc_app_by_designkes/model_graph_value.dart';
 import 'package:flutter/material.dart';
@@ -26,181 +27,207 @@ class DetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
-              "Documentries",
-              style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                      color: Colors.white,
-                      fontSize: ScreenUtil.instance.setSp(22),
-                      fontWeight: FontWeight.w400
-                  )
-              ),
-            ),
-            SizedBox(
-              height: ScreenUtil.instance.setHeight(4),
-            ),
-            Text(
-              "Identify a butterfly",
-              style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                      color: Colors.white,
-                      fontSize: ScreenUtil.instance.setSp(30),
-                      fontWeight: FontWeight.w700
-                  )
-              ),
-            ),
-            SizedBox(
-              height: ScreenUtil.instance.setHeight(60),
-            ),
-            WidgetMainImage(modelButterfly: modelButterfly,),
-            Container(
-              height: ScreenUtil.instance.setHeight(58),
-              child: Row(
+            FadeAnimation(
+              delay: 1,
+              fadeDirection: FadeDirection.bottom,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Expanded(
-                    flex: 4,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                            "Family",
-                            style: GoogleFonts.montserrat(
-                                textStyle: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: ScreenUtil.instance.setSp(16),
-                                    fontWeight: FontWeight.w400
-                                )
-                            )
-
-                        ),
-                        Text(
-                            "Swallowtails",
-                            style: GoogleFonts.montserrat(
-                                textStyle: TextStyle(
-                                    color: Color(0xFFf79d00),
-                                    fontSize: ScreenUtil.instance.setSp(16),
-                                    fontWeight: FontWeight.w600
-                                )
-                            )
-                        ),
-                      ],
+                  Text(
+                    "Documentries",
+                    style: GoogleFonts.montserrat(
+                        textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: ScreenUtil.instance.setSp(22),
+                            fontWeight: FontWeight.w400
+                        )
                     ),
                   ),
-                  Container(
-                    width: 0.2,
-                    color: Colors.white,
+                  SizedBox(
+                    height: ScreenUtil.instance.setHeight(4),
                   ),
-                  Expanded(
-                    flex: 3,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                            "Size",
-                            style: GoogleFonts.montserrat(
-                                textStyle: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: ScreenUtil.instance.setSp(16),
-                                    fontWeight: FontWeight.w400
-                                )
-                            )
-
-                        ),
-                        Text(
-                            "Large",
-                            style: GoogleFonts.montserrat(
-                                textStyle: TextStyle(
-                                    color: Color(0xFFf79d00),
-                                    fontSize: ScreenUtil.instance.setSp(16),
-                                    fontWeight: FontWeight.w600
-                                )
-                            )
-                        ),
-                      ],
+                  Text(
+                    "Identify a butterfly",
+                    style: GoogleFonts.montserrat(
+                        textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: ScreenUtil.instance.setSp(30),
+                            fontWeight: FontWeight.w700
+                        )
                     ),
                   ),
-                  Container(
-                    width: 0.2,
-                    color: Colors.white,
-                  ),
-                  Expanded(
-                    flex: 4,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                            "Wing Span Range",
-                            style: GoogleFonts.montserrat(
-                                textStyle: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: ScreenUtil.instance.setSp(16),
-                                    fontWeight: FontWeight.w400
-                                )
-                            )
-
-                        ),
-                        Text(
-                            "80-90 mm",
-                            style: GoogleFonts.montserrat(
-                                textStyle: TextStyle(
-                                    color: Color(0xFFf79d00),
-                                    fontSize: ScreenUtil.instance.setSp(16),
-                                    fontWeight: FontWeight.w600
-                                )
-                            )
-                        ),
-                      ],
-                    ),
+                  SizedBox(
+                    height: ScreenUtil.instance.setHeight(60),
                   ),
                 ],
               ),
             ),
-            SizedBox(
-              height: ScreenUtil.instance.setHeight(52),
+            WidgetMainImage(modelButterfly: modelButterfly,),
+            FadeAnimation(
+              delay: 2,
+              fadeDirection: FadeDirection.top,
+              child: Container(
+                margin: EdgeInsets.only(
+                  bottom: ScreenUtil.instance.setHeight(52),
+                ),
+                height: ScreenUtil.instance.setHeight(58),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 4,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(
+                              "Family",
+                              style: GoogleFonts.montserrat(
+                                  textStyle: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: ScreenUtil.instance.setSp(16),
+                                      fontWeight: FontWeight.w400
+                                  )
+                              )
+
+                          ),
+                          Text(
+                              "Swallowtails",
+                              style: GoogleFonts.montserrat(
+                                  textStyle: TextStyle(
+                                      color: Color(0xFFf79d00),
+                                      fontSize: ScreenUtil.instance.setSp(16),
+                                      fontWeight: FontWeight.w600
+                                  )
+                              )
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 0.2,
+                      color: Colors.white,
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(
+                              "Size",
+                              style: GoogleFonts.montserrat(
+                                  textStyle: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: ScreenUtil.instance.setSp(16),
+                                      fontWeight: FontWeight.w400
+                                  )
+                              )
+
+                          ),
+                          Text(
+                              "Large",
+                              style: GoogleFonts.montserrat(
+                                  textStyle: TextStyle(
+                                      color: Color(0xFFf79d00),
+                                      fontSize: ScreenUtil.instance.setSp(16),
+                                      fontWeight: FontWeight.w600
+                                  )
+                              )
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 0.2,
+                      color: Colors.white,
+                    ),
+                    Expanded(
+                      flex: 4,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(
+                              "Wing Span Range",
+                              style: GoogleFonts.montserrat(
+                                  textStyle: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: ScreenUtil.instance.setSp(16),
+                                      fontWeight: FontWeight.w400
+                                  )
+                              )
+
+                          ),
+                          Text(
+                              "80-90 mm",
+                              style: GoogleFonts.montserrat(
+                                  textStyle: TextStyle(
+                                      color: Color(0xFFf79d00),
+                                      fontSize: ScreenUtil.instance.setSp(16),
+                                      fontWeight: FontWeight.w600
+                                  )
+                              )
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            Container(
-                height: ScreenUtil.instance.setHeight(130),
-                child: AutoSizeText(
-                    "A large, strong-flying butterfly restricted to the Norfolk "
-                        "Broads, although migrants are occasionally seen "
-                        "elsewhere. This is one of our rarest and most "
-                        "spectacular butterflies.",
-                    minFontSize: 1,
-                    maxLines: 3,
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.montserrat(
-                        textStyle: TextStyle(
-                            color: Colors.white,
-                            fontSize: ScreenUtil.instance.setSp(20),
-                            fontWeight: FontWeight.w400,
-                            height: ScreenUtil.instance.setHeight(4)
-                        )
-                    )
-                )
-            ),
-            SizedBox(
-              height: ScreenUtil.instance.setHeight(32),
-            ),
-            Container(
-                alignment: Alignment.center,
-                child: AutoSizeText(
-                    "LIFE CYCLE",
-                    minFontSize: 1,
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.montserrat(
-                        textStyle: TextStyle(
-                            color: Colors.white,
-                            fontSize: ScreenUtil.instance.setSp(20),
-                            fontWeight: FontWeight.w400,
-                            letterSpacing: 2
-                        )
-                    )
-                )
+            FadeAnimation(
+              delay: 1,
+              fadeDirection: FadeDirection.top,
+              child: Container(
+                margin: EdgeInsets.only(bottom: ScreenUtil.instance.setHeight(32)),
+                  height: ScreenUtil.instance.setHeight(130),
+                  child: AutoSizeText(
+                      "A large, strong-flying butterfly restricted to the Norfolk "
+                          "Broads, although migrants are occasionally seen "
+                          "elsewhere. This is one of our rarest and most "
+                          "spectacular butterflies.",
+                      minFontSize: 1,
+                      maxLines: 3,
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.montserrat(
+                          textStyle: TextStyle(
+                              color: Colors.white,
+                              fontSize: ScreenUtil.instance.setSp(20),
+                              fontWeight: FontWeight.w400,
+                              height: ScreenUtil.instance.setHeight(4)
+                          )
+                      )
+                  )
+              ),
             ),
             Expanded(
               child: Container(),
             ),
-            WidgetGraph()
+            FadeAnimation(
+              delay: 2,
+              fadeDirection: FadeDirection.bottom,
+              child: Column(
+                children: <Widget>[
+                  Container(
+                      alignment: Alignment.center,
+                      child: AutoSizeText(
+                          "LIFE CYCLE",
+                          minFontSize: 1,
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.montserrat(
+                              textStyle: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: ScreenUtil.instance.setSp(20),
+                                  fontWeight: FontWeight.w400,
+                                  letterSpacing: 2
+                              )
+                          )
+                      )
+                  ),
+                  SizedBox(
+                    height: ScreenUtil.instance.setHeight(32),
+                  ),
+                  WidgetGraph()
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -488,18 +515,22 @@ class _WidgetMainImageState extends State<WidgetMainImage> with SingleTickerProv
             SizedBox(
               height: ScreenUtil.instance.setHeight(90),
               child: Center(
-                child: AutoSizeText(
-                    widget.modelButterfly.name.toUpperCase(),
-                    maxLines: 1,
-                    minFontSize: 1,
-                    style: GoogleFonts.montserrat(
-                        textStyle: TextStyle(
-                          color: Colors.white,
-                          fontSize: ScreenUtil.instance.setSp(70),
-                          letterSpacing: ScreenUtil.instance.setSp(8),
-                          fontWeight: FontWeight.w200,
-                        )
-                    )
+                child: FadeAnimation(
+                  delay: 2,
+                  fadeDirection: FadeDirection.bottom,
+                  child: AutoSizeText(
+                      widget.modelButterfly.name.toUpperCase(),
+                      maxLines: 1,
+                      minFontSize: 1,
+                      style: GoogleFonts.montserrat(
+                          textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: ScreenUtil.instance.setSp(70),
+                            letterSpacing: ScreenUtil.instance.setSp(8),
+                            fontWeight: FontWeight.w200,
+                          )
+                      )
+                  ),
                 ),
               ),
             ),

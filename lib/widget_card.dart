@@ -91,12 +91,9 @@ class WidgetCard extends StatelessWidget {
                     scale: 1,
                     child: SizedBox(
                       height: ScreenUtil.instance.setHeight(240),
-                      child: Hero(
-                        tag: modelButterfly.image,
-                        child: Image.asset(
-                          modelButterfly.image,
-                          color: Colors.black.withOpacity(0.03),
-                        ),
+                      child: Image.asset(
+                        modelButterfly.image,
+                        color: Colors.black.withOpacity(0.03),
                       ),
                     ),
                   ),
@@ -105,9 +102,12 @@ class WidgetCard extends StatelessWidget {
                   scale: 1,
                   child: SizedBox(
                     height: ScreenUtil.instance.setHeight(200),
-                    child: Image.asset(
-                      modelButterfly.image,
-                      colorBlendMode: BlendMode.darken,
+                    child: Hero(
+                    tag: modelButterfly.image,
+                      child: Image.asset(
+                        modelButterfly.image,
+                        colorBlendMode: BlendMode.darken,
+                      ),
                     ),
                   ),
                 ),
