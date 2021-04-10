@@ -1,6 +1,6 @@
 # Butterfly Doc App by designkes
 
-Concept design for butterfly documentary app by [designkes](https://www.instagram.com/p/B60lHHhg_Li/)
+Concept design for butterfly documentary app by [designkes](https://www.instagram.com/designkes/)
 
 <img src= "https://user-images.githubusercontent.com/24708307/114257331-75ef9f80-99e9-11eb-8e51-8b7a753c6bbf.png" width =600>
 
